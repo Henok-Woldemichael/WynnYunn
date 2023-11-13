@@ -1,0 +1,133 @@
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+
+
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.01, 1000);
+camera.position.set(0,285,670);
+
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+
+var controls = new OrbitControls(camera, renderer.domElement);
+
+
+
+
+// Load textures
+const textureLoader = new THREE.TextureLoader();
+const textureCube1 = textureLoader.load('Images/07WynnYunn.png');
+const textureCube2 = textureLoader.load('Images/02WynnYunn.png');
+
+const texturePlane = textureLoader.load('Images/03WynnYunn.png');
+const backgroundTexture = textureLoader.load('Images/04WynnYunn.png');
+let customFont; // Global variable to hold the font data
+const fontLoader = new FontLoader();
+
+function createTextGeometry() {
+    // Check if the custom font has been loaded
+    if (customFont) {
+      // Create TextGeometry and add it to the scene
+      
+    const textMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+   
+    renderer.render();
+    scene.add(textMesh);
+}
+}
+createTextGeometry();
+
+
+// Create cubes with textures
+const cubeGeometry = new THREE.BoxGeometry(90, 90, 30);
+const cubeMaterial1 = new THREE.MeshBasicMaterial({ map: textureCube1 });
+const cubeMaterial2 = new THREE.MeshBasicMaterial({ map: textureCube2 });
+const cube1 = new THREE.Mesh(cubeGeometry, cubeMaterial1);
+const cube2 = new THREE.Mesh(cubeGeometry, cubeMaterial2);
+cube1.position. set(90,255,245);
+cube2.position.set(-90,255,245);
+
+// Create a plane with a texture
+const planeGeometry = new THREE.PlaneGeometry(1000, 1000);
+const planeMaterial = new THREE.MeshBasicMaterial({ map: texturePlane });
+const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+plane.rotation.x = -Math.PI / 2;
+
+// Add cubes and plane to the scene
+scene.add(cube1);
+scene.add(cube2);
+scene.add(plane);
+
+// Set up the background
+scene.background = backgroundTexture;
+
+const gltfLoader = new GLTFLoader();
+
+
+gltfLoader.load('Frog1.gltf', function (gltf) {
+  // Add the loaded scene to the Three.js scene
+  scene.add(gltf.scene);
+
+  // Create a pink material
+  const pinkMaterial = new THREE.MeshBasicMaterial({ color: 0xff00ff });
+
+  // Traverse the model's children and set the pink material
+  gltf.scene.traverse((child) => {
+    if (child instanceof THREE.Mesh) {
+      child.material = pinkMaterial;
+    }
+  });
+}, undefined, function (error) {
+  console.error('Error loading GLB model', error);
+});
+fontLoader.load
+(
+    'cake.json',
+    function(font)
+    {
+       
+        const textGeometry = new TextGeometry('Hello, Three.js!', {
+            font: font,
+            size: 100,
+            height: 9,
+          })
+        
+          const textMesh = new THREE.Mesh
+          (
+            textGeometry,[new THREE.MeshPhongMaterial({color: 0xad4000}),
+            new THREE.MeshPhongMaterial({color: 0x5c2301})]
+          );
+          textMesh.position(0,0,90)
+          scene.add(textMesh);
+
+       
+    });
+
+
+// Animation
+const animate = () => {
+    requestAnimationFrame(animate);
+
+    // Rotate the cubes
+    cube1.rotation.y += 0.008;
+    
+    cube2.rotation.y -= 0.01;
+    
+    controls.update();
+
+    renderer.render(scene, camera);
+
+ 
+};
+
+
+animate();
+
