@@ -27,7 +27,7 @@ document.body.appendChild( renderer.domElement );
     //     if (event.type === "mouseover") {
     //         // Mouse-Over code here
     //     } else if (event.type === "click") {
-    //         // Click code here
+    //         // Click code 
     //     }
     // });
     const textureLoader = new THREE.TextureLoader();

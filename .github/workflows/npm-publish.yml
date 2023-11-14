@@ -37,5 +37,5 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages # Change this to your desired branch
+        BRANCH: main # Change this to your desired branch
         FOLDER: dist # Change this to your build output folder
