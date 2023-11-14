@@ -1,9 +1,9 @@
-import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
-import { FontLoader } from 'three/addons/loaders/FontLoader.js';
-import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
+import * as THREE from './node_modules/three';
+import { OrbitControls } from './node_modules/threeaddons/controls/OrbitControls.js';
+import { GLTFLoader } from './node_modules/threeaddons/loaders/GLTFLoader.js';
+import { CSS2DRenderer } from './node_modules/threeaddons/renderers/CSS2DRenderer.js';
+import { FontLoader } from './node_modules/threeaddons/loaders/FontLoader.js';
+import { TextGeometry } from './node_modules/threeaddons/geometries/TextGeometry.js';
 
 
 
