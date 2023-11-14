@@ -38,4 +38,4 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: main # Change this to your desired branch
-        FOLDER: dist # Change this to your build output folder
+        FOLDER: dist # Change this to you build output folder
