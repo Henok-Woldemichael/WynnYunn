@@ -1,0 +1,18 @@
+button {
+    position: absolute;
+    display: block;
+    z-index: 99;
+    left: 50%;
+    top: 50%;
+    }
+#info {
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	text-align: center;
+	z-index: 100;
+	display:block;
+}
+
+
+ 
