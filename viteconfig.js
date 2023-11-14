@@ -2,5 +2,7 @@
 export default {
     base: 'wynnyunn', // Set this to your repository name
     // other configurations...
+
+    outDir: 'dist',
   }
   
