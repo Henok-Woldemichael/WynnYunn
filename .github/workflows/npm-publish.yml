@@ -36,6 +36,6 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.DEPLOY}}
         BRANCH: main # Change this to your desired branch
         FOLDER: dist # Change this to you build output folder
