@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from './node_modules/three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CSS2DRenderer } from 'three/addons/renderers/CSS2DRenderer.js';
@@ -92,11 +92,11 @@ window.addEventListener('click',click);
 
 // Load textures
 const textureLoader = new THREE.TextureLoader();
-const textureCube2 = textureLoader.load('Images/03WynnYunn.png');
-const textureCube1 = textureLoader.load('Images/04WynnYunn.png');
+const textureCube2 = textureLoader.load('./Images/03WynnYunn.png');
+const textureCube1 = textureLoader.load('./Images/04WynnYunn.png');
 
-const texturePlane = textureLoader.load('Images/06WynnYunn.png');
-const backgroundTexture = textureLoader.load('Images/02WynnYunn.png');
+const texturePlane = textureLoader.load('./Images/06WynnYunn.png');
+const backgroundTexture = textureLoader.load('./Images/02WynnYunn.png');
 let customFont; // Global variable to hold the font data
 const fontLoader = new FontLoader();
 
