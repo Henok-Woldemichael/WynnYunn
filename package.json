@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "node,",
-    "build": "npx run vite",
+    "build": "npx vite",
     "preview": "preview"
   }
 }
