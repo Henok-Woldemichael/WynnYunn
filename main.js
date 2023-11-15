@@ -1,4 +1,4 @@
-import * as THREE from './node_modules/three';
+import * as THREE from './node_modules/three/src';
 import { OrbitControls } from './three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from './node_modules/three/addons/loaders/GLTFLoader.js';
 import { CSS2DRenderer } from './node_modules/three/addons/renderers/CSS2DRenderer.js';
